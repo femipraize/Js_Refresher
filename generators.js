@@ -1,4 +1,5 @@
 
+// Dos similar stuf as itirators
 function* generate(){
     let i = 0;
     yield "Toyota";
