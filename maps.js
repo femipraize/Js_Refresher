@@ -20,6 +20,7 @@ console.log(myCar2)
 
 var myArr = [[1, "Toyota"], [2, "Honda"], [3, "Lexus"]]
 var myCar2 = new Map(myArr)
+console.log(myCar2)
 console.log(myCar2.get(3))
 
 // cloning a Map
