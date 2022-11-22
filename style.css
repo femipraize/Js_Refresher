@@ -35,6 +35,7 @@ body{
         left: -50px;
     }
 }
+
 #hole{
     height: 150px;
     width: 50px;
@@ -55,5 +56,5 @@ body{
 #bird img{
     height: 50px;
     width: 50px;
-    
+
 }
