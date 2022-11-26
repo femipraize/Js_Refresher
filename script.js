@@ -11,6 +11,7 @@ function RanHole()
 {
     var random = -((Math.random()*350)+150)
     hole.style.top = random+"px";
+    score++;
 }
 
 var fall = setInterval(function() 
