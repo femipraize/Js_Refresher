@@ -100,7 +100,7 @@ ul{
 .section1{
     height: calc(100vh - 10vh);
     width: 100%;
-    background: url("Projects\images\UniverseImage.jpg") center center/cover;
+    background: url("./images/Universalimage.jpg") center center/cover;
     top: 0;
     left: 0;
     z-index: -1;

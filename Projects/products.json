@@ -5,7 +5,7 @@
             "fields":{
                 "title":"Python Programming Mastercourse",
                 "Price":123.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -13,7 +13,7 @@
             "fields":{
                 "title":"C++ Mastercourse",
                 "Price":110.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -21,7 +21,7 @@
             "fields":{
                 "title":"Web Development for beginners",
                 "Price":99.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -29,7 +29,7 @@
             "fields":{
                 "title":"Java Programmin mastercourse",
                 "Price":149.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -37,7 +37,7 @@
             "fields":{
                 "title":"Digital marketing fullcourse",
                 "Price":109.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -45,7 +45,7 @@
             "fields":{
                 "title":"Advance Web Development",
                 "Price":123.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -53,7 +53,7 @@
             "fields":{
                 "title":"Data Structure and Algorithns Full Course",
                 "Price":99.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         },
         {
@@ -61,7 +61,7 @@
             "fields":{
                 "title":"Data Science Full Course",
                 "Price":123.99,
-                "image":{"fields":{"file":{"url":"Projects\images\UniverseImage.jpg"}}}
+                "image":{"fields":{"file":{"url":"./images/Universalimage.jpg"}}}
             }
         }
     ]
