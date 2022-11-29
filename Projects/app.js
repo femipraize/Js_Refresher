@@ -18,4 +18,7 @@ cart.addEventListener("click", function() {
     cartSidebar.style.transform = "translate(0%)"
     const bodyOverlay = document.createElement("div")
     bodyOverlay.classList.add("overlay");
+    setTimeout(function(){
+        document.querySelector("body").append(bodyOverlay)
+    })
 })
