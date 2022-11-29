@@ -173,7 +173,7 @@ ul{
     margin-top: 0.5em;
 }
 
-cart h2{
+.cart h2{
     text-align: center;
     width: 100%;
     margin-bottom: 1em;
@@ -317,7 +317,7 @@ cart h2{
     .section1 .banner h1{
         font-size: 1.2em;
     }
-    .buger{
+    .burger{
         margin-left: 1em;
         display: block;
         width: 30px;
