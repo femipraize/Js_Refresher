@@ -13,3 +13,7 @@ const cartContent = document.querySelector(".cart-content")
 
 let Cart=[];
 let buttonsDom = [];
+
+cart.addEventListener("click", function() {
+    cartSidebar.style.transform = "translate(0%)"
+})
