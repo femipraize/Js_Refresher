@@ -51,3 +51,23 @@ class Product{
         return products;
     }
 }
+
+class UI{
+    displayProducts(){
+        let result = "";
+        products.forEach(Product => {
+            const productDiv = document.createElement("div")
+            productDiv.innerHTML = `<div class = "product-card">
+                                    <img src="${product.image}"alt="product">
+                                    <span class ="add-to-cart" data-id="${product.id}">
+                                    <i class = "fa fa-cart--plus fa-lx"
+                        style ="margin-right:0.1em; font-size: 1em;"></i>
+                                    Add to Cart
+                                    </span>
+                                    <div class = "product-name">${product.title}</div>
+                                    <div class = "product-pricing">${product.price}</div>
+                                    </div>`
+            const p = document.querySelector("")
+        });
+    }
+}
