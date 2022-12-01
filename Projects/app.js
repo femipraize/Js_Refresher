@@ -20,5 +20,34 @@ cart.addEventListener("click", function() {
     bodyOverlay.classList.add("overlay");
     setTimeout(function(){
         document.querySelector("body").append(bodyOverlay)
-    })
+    },300)
 })
+
+closeCart.addEventListener("click", function () {
+    cartSidebar.style.transform = "translate(100%)"
+    const bodyOverlay = document.querySelector(".overlay")
+    document.querySelector("body").removeChild(bodyOverlay)
+})
+
+burger.addEventListener("click", function() {
+    menuSidebar.style.transform = "translate(0%)"
+})
+
+closeMenu.addEventListener("click", function() {
+    menuSidebar.style.transform = "translate(-100%)"
+})
+
+class Product{
+    async getProduct(){
+        const response = await fetch("products.json");
+        const data= await response.json();
+        let products = data.items;
+        products = products.map(item=>{
+            const{title,price} = item.fields;
+            const{id} = item.sys;
+            const image = item.fields.image.fields.file.url;
+            return {title, price, id, image}
+        })
+        return products;
+    }
+}
