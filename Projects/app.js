@@ -88,6 +88,7 @@ getButtons()
         btn.addEventListener("click", (e)=>{
             e.currentTarget.innerHTML = "In Cart"
             e.currentTarget.style.color ="white"
+            e.currentTarget.style
         })
     })
 }
