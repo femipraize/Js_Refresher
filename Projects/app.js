@@ -88,8 +88,17 @@ getButtons()
         btn.addEventListener("click", (e)=>{
             e.currentTarget.innerHTML = "In Cart"
             e.currentTarget.style.color ="white"
-            e.currentTarget.style
+            e.currentTarget.style.pointerEvents = "none"
+            let cartItem = {...Storage.getStorageProducts(id), 'amount': 1}
+            Cart.push(cartItem)
+            Storage.saveCart(Cart)
+            this.setCartValues(cart)
+            this.addCartItems(cartItem)
         })
     })
+}
+
+setCartValues(cart){
+    let tempTotal = 0;
 }
 }
