@@ -67,7 +67,28 @@ class UI{
                                     <div class = "product-name">${product.title}</div>
                                     <div class = "product-pricing">${product.price}</div>
                                     </div>`
-            const p = document.querySelector("")
-        });
+            const p = document.querySelector(".pruduct")
+            p.append(productDiv)
+        })
     }
+    
+getButtons()
+{
+    const btns = document.querySelectorAll(".add-to-cart")
+    Array.from(btns)
+    buttonsDom = btns;
+    btns.forEach((btn)=>{
+        let id = btn.CDATA_SECTION_NODE.id
+        let inCart = cart.firstElementChild((item)=>item.id===id);
+        if(inCart)
+        {
+            btn.innerHTML = "In Cart"
+            btn.dissabled = true 
+        }
+        btn.addEventListener("click", (e)=>{
+            e.currentTarget.innerHTML = "In Cart"
+            e.currentTarget.style.color ="white"
+        })
+    })
+}
 }
