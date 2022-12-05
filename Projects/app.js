@@ -100,5 +100,26 @@ getButtons()
 
 setCartValues(cart){
     let tempTotal = 0;
+    let itemsTotal = 0;
+    Cart.map((item) =>{
+        tempTotal += (item.price*item.amount);
+        itemsTotal = item.amount;
+        parseFloat(tempTotal.toFixed(2))
+    })
+    cartItemsTotal.innerHTML = itemsTotal
+    cartPriceTotal.innerHTML = parseFloat(tempTotal.toFixed(2))
+}
+addCartItems(cartItem){
+    let cartItem = document.createElement("div")
+    cartItemUi.innerHTML = `<div class = "cart-product">
+                            <div class = "product-image"><img src = "${cartItem.image} alt= "product"></div>
+                            <div class = "cart-product- content"><div class = "cart-product-name"><h3>${cartItem.title}</h3></div></div>
+                            <div class = cart-product-price"><h3>$${cartItem.price}</h3></div>
+                            <div class = "cart-product-remove data-id="${cartItem.id}"<a>href = "#" style= "color:red;">remove</a></div>
+                            </div>
+                            <div class = "plus-minus">
+                            <i class = "fa fa-angle-left add-amount"
+                            data-id= "${cartItem.id}"></i>
+                            <span class="no-of-items">${cartItem.amount}</span>`
 }
 }
