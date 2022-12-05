@@ -246,4 +246,23 @@ class Storage{
         let products = JSON.parse(localStorage.getItem('products'))
         return products.find((item) =>item.id===id)
     }
+    static saveCart(Cart){
+        localStorage.setItem('Cart', JSON.stringify(Cart))
+    }
+    static getCart(){
+        return localStorage.getItem('Cart')? JSON.parse(localStorage.getItem("Cart")):[]
+    }
 }
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    const products = new product();
+    const ui = new UI;
+    ui.setupApp()
+    products.getProduct().then(products=>{
+        ui.displayProducts(products)
+        Storage.saveProducts(products)
+    }).then(()=>{
+        ui.getButtons();
+        ui.cartLogic();
+    })
+})
