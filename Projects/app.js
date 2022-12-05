@@ -120,6 +120,130 @@ addCartItems(cartItem){
                             <div class = "plus-minus">
                             <i class = "fa fa-angle-left add-amount"
                             data-id= "${cartItem.id}"></i>
-                            <span class="no-of-items">${cartItem.amount}</span>`
+                            <span class="no-of-items">${cartItem.amount}</span>
+                            <i>data-id="${cartItem.id}"</i>
+                            </div>
+                            </div>`
+                            cartContent.append(cartItemUi)
+            }
+            setupApp(){
+                Cart = Storage.getCart()
+                this.setCartValues(Cart)
+                Cart.map((item) =>{
+                    this.addCartItems(item)
+                })
+            }
+            cartLogic(){
+                clearBtn.addEventListener("click", ()=>{
+                    this.closeCart()
+                })
+            cartContent.addEventListener("click", (event)=>{
+                if(event.target.classList.contains("cart-product-remove")){
+                    let id = event.target.dataset.id
+                    this.removeItem(id)
+                    let div = event.target.parentElement.parentElement.parentElement.parentElement
+                    div.removeChild(event.target.parentElement.parentElement.parentElement.parentElement)
+                }
+                else if(event.target.classList.contains("add-amount")){
+                    let id = event.target.dataset.id
+                    let item = Cart.find((item)=>item.id===id)
+                    item.amount++
+                    Storage.saveCart(Cart)
+                    this.setCartValues(Cart)
+                    event.target.nextElementSibling.innerHTML = item.amount
+                }
+                else if(event.target.classList.contains("reduce-amount")){
+                    let id = event.target.dataset.id
+                    let item = Cart.find((item)=>item.id===id)
+                    if(item.amount>1){
+                        item.amount--
+                        Storage.saveCart(Cart)
+                        this.setCartValues(Cart)
+                        event.target.previousElementSibling.innerHTML = item.amount
+                    }
+                    else{
+                        this.removeItem(id)
+                        let div = event.target.parentElement.parentElement.parentElement.parentElement
+                        div.removeChild(event.target.parentElement.parentElement.parentElement.parentElement)
+                    }
+                }
+            })
+
+            }
+            addAmount(){
+                const addBtn = document.querySelectorAll(".add-amount")
+                addBtn.forEach((btn)=>{
+                    btn.addEventListener("click", (event)=>{
+                        let id = (event.currentTarget.dataset.id)
+                        Cart.map((item)=>{
+                            if(item.id===id){
+                            item.amount++
+                            Storage.saveCart(Cart)
+                            this.setCartValues(Cart)
+                            const amountUi = event.currentTarget.parentElement.children[1]
+                            amountUi.innerHTML = item.amount
+                        }
+                        })
+                    })
+                })
+            }
+            reduceAmount(){
+                const reduceBtn = document.querySelectorAll(".reduce-amount")
+                reduceBtn.forEach((btn)=>{
+                    btn.addEventListener("click",(event)=>{
+                        let id = (event.currentTarget.dataset.id)
+                        Cart.map((item)=>{
+                            if(item.id===id){
+                                item.amount--
+                                if(item.amount>0){
+                                    Storage.saveCart(Cart)
+                                    this.setCartValues(Cart)
+                                    const amountUi = event.currentTarget.parentElement.children[1]
+                                    amountUi.innerHTML = item.amount
+                                }else{
+                                    event.currentTarget.parentElement.parentElement.parentElement.removeChild(event.currentTarget.parentElement.parentElement)
+                                    this.removeItem(id)
+                                }
+                            }
+                        })
+                    })
+                })
+            }
+            clearCart(){
+                let cartItem = Cart.map(item=>item.id)
+                cartItem.forEach((id)=> this.removeItem(id))
+                const cartProduct = document.querySelectorAll(".cart-product")
+                cartProduct.forEach((item) => {
+                    if(item){
+                        item.parentElement.removeChild(item)
+                    }
+                })
+            }
+            removeItem(id){
+                Cart = Cart.filter((item) => item.id!==id)
+                this.setCartValues(Cart)
+                Storage.saveCart(Cart)
+                let button = this.getSingleButton(id)
+                button.style.pointerEvents = "unset"
+                button.innerHTML= `<i class= "fa fa-cart-plus"></i>Add To Cart`
+            }
+            getSingleButton(id){
+                let btn
+                buttonsDom.forEach((button)=>{
+                    if(button.dataset.id === id){
+                        btn = button
+                    }
+                })
+                return btn
+            }
 }
+
+class Storage{
+    static  saveProducts(products){
+        localStorage.setItem("products", JSON.stringify(products))
+    }
+    static getStorageProducts(id){
+        let products = JSON.parse(localStorage.getItem('products'))
+        return products.find((item) =>item.id===id)
+    }
 }
